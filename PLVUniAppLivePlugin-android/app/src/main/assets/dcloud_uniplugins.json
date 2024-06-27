@@ -1,0 +1,29 @@
+{
+  "nativePlugins": [
+    {
+      "hooksClass": "com.polyv.unipluginplvlive.PolyvAppProxy",
+      "plugins": [
+        {
+          "type": "module",
+          "name": "PLV-LiveUniPlugin-WatchConfigModule",
+          "class": "com.polyv.unipluginplvlive.PLVLiveWatchConfigModule"
+        },
+        {
+          "type": "module",
+          "name": "PLV-LiveUniPlugin-WatchPlayModule",
+          "class": "com.polyv.unipluginplvlive.PLVLiveWatchModule"
+        },
+        {
+          "type": "module",
+          "name": "PLV-LiveUniPlugin-StreamerConfigModule",
+          "class": "com.polyv.unipluginplvlive.PLVLiveStreamerConfigModule"
+        },
+        {
+          "type": "module",
+          "name": "PLV-LiveUniPlugin-StreamerLiveModule",
+          "class": "com.polyv.unipluginplvlive.PLVLiveStreamerLiveModule"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+include ':app'
+include ':polyvLiveCloudClassScene'
+include ':polyvLiveCommonModul'
+include ':polyvLiveEcommerceScene'
+include ':polyvLiveStreamerScene'
+include ':polyvStreamerAloneScene'
+include ':uniplugin_plvlive'

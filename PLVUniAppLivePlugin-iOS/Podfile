@@ -1,0 +1,54 @@
+ # Uncomment the next line to define a global platform for your project
+platform :ios, '12.0'
+
+use_frameworks!
+
+target 'HBuilder-Live' do
+  # 保利威 多场景 SDK
+  pod 'PLVLiveScenesSDK', '1.17.1'
+
+  # 保利威 手机开播场景 需依赖的库
+  pod 'PLVBytedEffectSDK', '4.4.2'
+  pod 'PLVBusinessSDK', '1.17.1', :subspecs => ['Beauty']
+
+  # 保利威 SM2加密 需依赖的库
+  pod 'PLVLOpenSSL', '~> 1.1.12100'
+  pod 'PLVFoundationSDK', '1.17.1', :subspecs => ['CryptoUtils']
+
+  # 屏幕共享
+  pod 'PLVBusinessSDK', '1.17.1', :subspecs => ['AbstractBSH','ReplayKitExt']
+
+  # 保利威 UI源码 需依赖的库
+  pod 'SDWebImage', '4.4.0'
+  pod 'MJRefresh', '~> 3.5.0'
+  pod 'PLVImagePickerController', '~> 0.1.3' # 仅手机开播场景需要
+  pod 'SVGAPlayer', '~> 2.3'
+  pod 'Protobuf', '3.22.4'
+end
+
+target 'PLVUniScreenShareExtension' do
+  # 保利威 多场景 SDK
+  pod 'PLVLiveScenesSDK', '1.17.1'
+
+  # 保利威 手机开播场景 需依赖的库
+  pod 'PLVBytedEffectSDK', '4.4.2'
+  pod 'PLVBusinessSDK', '1.17.1', :subspecs => ['Beauty']
+
+  # 保利威 SM2加密 需依赖的库
+  pod 'PLVLOpenSSL', '~> 1.1.12100'
+  pod 'PLVFoundationSDK', '1.17.1', :subspecs => ['CryptoUtils']
+
+  # 屏幕共享
+  pod 'PLVBusinessSDK', '1.17.1', :subspecs => ['AbstractBSH','ReplayKitExt']
+end
+
+post_install do |installer|
+  installer.generated_projects.each do |project|
+    project.targets.each do |target|
+        target.build_configurations.each do |config|
+            config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '12.0'
+            config.build_settings['APPLICATION_EXTENSION_API_ONLY'] = 'NO'
+         end
+    end
+  end
+end
